@@ -4,7 +4,9 @@ LABEL maintainer="christian@dautume.fr" \
 
 ENV FUSIONDIRECTORY_VERSION=1.3-1
 
-RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys D744D55EACDA69FF \
+RUN apt-get update \
+ && apt-get install -y gnupg ca-certificates \
+ && apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys D744D55EACDA69FF \
  && (echo "deb http://repos.fusiondirectory.org/fusiondirectory-current/debian-jessie jessie main"; \
      echo "deb http://repos.fusiondirectory.org/fusiondirectory-extra/debian-jessie jessie main") \
     > /etc/apt/sources.list.d/fusiondirectory-jessie.list \
