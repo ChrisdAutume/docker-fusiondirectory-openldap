@@ -1,8 +1,8 @@
 FROM osixia/openldap:1.1.9
-LABEL maintainer="mps299792458@gmail.com" \
-      version="1.1.9-1.2-1"
+LABEL maintainer="christian@dautume.fr" \
+      version="1.1.9-1.3-1"
 
-ENV FUSIONDIRECTORY_VERSION=1.2-1
+ENV FUSIONDIRECTORY_VERSION=1.3-1
 
 RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys D744D55EACDA69FF \
  && (echo "deb http://repos.fusiondirectory.org/fusiondirectory-current/debian-jessie jessie main"; \
@@ -12,12 +12,16 @@ RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys D744D55EACDA69FF \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     fusiondirectory-schema=${FUSIONDIRECTORY_VERSION} \
     fusiondirectory-plugin-argonaut-schema=${FUSIONDIRECTORY_VERSION} \
+    fusiondirectory-plugin-applications-schema=${FUSIONDIRECTORY_VERSION} \
+    fusiondirectory-plugin-alias-schema=${FUSIONDIRECTORY_VERSION} \
     fusiondirectory-plugin-autofs-schema=${FUSIONDIRECTORY_VERSION} \
+    fusiondirectory-plugin-dovecot-schema=${FUSIONDIRECTORY_VERSION} \
     fusiondirectory-plugin-gpg-schema=${FUSIONDIRECTORY_VERSION} \
     fusiondirectory-plugin-mail-schema=${FUSIONDIRECTORY_VERSION} \
     fusiondirectory-plugin-postfix-schema=${FUSIONDIRECTORY_VERSION} \
     fusiondirectory-plugin-ssh-schema=${FUSIONDIRECTORY_VERSION} \
     fusiondirectory-plugin-sudo-schema=${FUSIONDIRECTORY_VERSION} \
+    fusiondirectory-plugin-sogo-schema=${FUSIONDIRECTORY_VERSION} \
     fusiondirectory-plugin-systems-schema=${FUSIONDIRECTORY_VERSION} \
     fusiondirectory-plugin-weblink-schema=${FUSIONDIRECTORY_VERSION} \
     fusiondirectory-plugin-webservice-schema=${FUSIONDIRECTORY_VERSION} \
