@@ -15,8 +15,8 @@ RUN apt-get update \
     fusiondirectory-schema=${FUSIONDIRECTORY_VERSION} \
     fusiondirectory-plugin-argonaut-schema=${FUSIONDIRECTORY_VERSION} \
     fusiondirectory-plugin-applications-schema=${FUSIONDIRECTORY_VERSION} \
-    fusiondirectory-plugin-alias-schema=${FUSIONDIRECTORY_VERSION} \
     fusiondirectory-plugin-autofs-schema=${FUSIONDIRECTORY_VERSION} \
+    fusiondirectory-plugin-dsa-schema=${FUSIONDIRECTORY_VERSION} \
     fusiondirectory-plugin-dovecot-schema=${FUSIONDIRECTORY_VERSION} \
     fusiondirectory-plugin-gpg-schema=${FUSIONDIRECTORY_VERSION} \
     fusiondirectory-plugin-mail-schema=${FUSIONDIRECTORY_VERSION} \
