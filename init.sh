@@ -26,7 +26,7 @@ FD_ADMIN_PASSWORD=${FD_ADMIN_PASSWORD:-"adminpassword"}
 
 touch /tmp/delete.ldif
 
-if "${LDAP_READONLY_USER}"; then
+if [  -z "$LDAP_READONLY_USER" ]; then
     cat <<EOF >> /tmp/delete.ldif
 dn: cn=${LDAP_READONLY_USER_USERNAME},${SUFFIX}
 changetype: delete
@@ -68,7 +68,7 @@ userPassword: ${LDAP_ADMIN_PASSWORD}
 
 EOF
 
-if "${LDAP_READONLY_USER}"; then
+if [  -z "$LDAP_READONLY_USER" ]; then
     cat <<EOF >> /tmp/base.ldif
 dn: cn=${LDAP_READONLY_USER_USERNAME},${SUFFIX}
 objectClass: simpleSecurityObject
@@ -129,7 +129,7 @@ ou: tokens
 
 dn: cn=config,ou=fusiondirectory,${SUFFIX}
 fdTheme: default
-fdTimezone: America/New_York
+fdTimezone: Europe/Paris
 fusionConfigMd5: 7fd38d273a2f2e14c749467f4c38a650
 fdSchemaCheck: TRUE
 fdPasswordDefaultHash: ssha
@@ -191,9 +191,9 @@ objectClass: fusionDirectoryPluginsConf
 objectClass: fdDashboardPluginConf
 objectClass: fdPasswordRecoveryConf
 fdPasswordRecoveryActivated: FALSE
-fdPasswordRecoveryEmail: to.be@chang.ed
+fdPasswordRecoveryEmail: no-reply@exemple.com
 fdPasswordRecoveryValidity: 10
-fdPasswordRecoverySalt: SomethingSecretAndVeryLong
+fdPasswordRecoverySalt: IethiacoaCod0Tuloe1ozae5arooh3la
 fdPasswordRecoveryUseAlternate: FALSE
 fdPasswordRecoveryMailSubject: [FusionDirectory] Password recovery link
 fdPasswordRecoveryMailBody:: SGVsbG8sCgpIZXJlIGFyZSB5b3VyIGluZm9ybWF0aW9ucyA6I
